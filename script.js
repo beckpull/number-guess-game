@@ -1,7 +1,8 @@
 var userInput = document.getElementById('input');
 const guessButton = document.querySelector('#button');
 const resetButton = document.querySelector('#reset');
-var message = document.body.querySelector('p')
+var message = document.body.querySelector('p');
+var scores = document.body.querySelector('h6');
 var botNum = Math.floor(Math.random() * 10);
 let wins = 0;
 let losses = 0;
@@ -25,11 +26,11 @@ var game = function() {
     if (userGuess === botNum) {
         message.textContent = 'Congratulations!';
         wins++;
-        console.log('Wins: ' + wins + ' Losses: ' + losses);
+        scores.textContent = 'Wins: ' + wins + ' Losses: ' + losses 
     } else if (userGuess !== botNum) {
         message.textContent = 'Try again!';
         losses++; 
-        console.log('Wins: ' + wins + ' Losses: ' + losses);
+        scores.textContent = 'Wins: ' + wins + ' Losses: ' + losses  
     } 
 }
 
@@ -37,8 +38,9 @@ guessButton.addEventListener('click', function() {
     if (losses <= 2) {
         game();
     } else if (losses > 2) {
-        message.textContent = 'Click "Clear" to try again!'
+        message.textContent = 'Computer chose: ' + botNum + '. Click "Clear" to try again!'
     }
+    userInput.value = '';
 });
 
 resetButton.addEventListener('click', function() {
@@ -46,6 +48,7 @@ resetButton.addEventListener('click', function() {
     botNum = Math.floor(Math.random() * 10);
     wins = 0;
     losses = 0;
+    userInput.value = '';
 });
 
 
