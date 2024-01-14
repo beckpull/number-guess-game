@@ -19,8 +19,8 @@ var game = function() {
         message.textContent = 'Please enter a valid integer in between 0 and 10.'
         return;
     }
-        console.log(botNum);
-        console.log(userGuess);
+        // console.log(botNum);
+        // console.log(userGuess);
 
     if (userGuess === botNum) {
         message.textContent = 'Congratulations!';
