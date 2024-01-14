@@ -49,6 +49,7 @@ resetButton.addEventListener('click', function() {
     wins = 0;
     losses = 0;
     userInput.value = '';
+    scores.textContent = 'Wins: ' + wins + ' Losses: ' + losses 
 });
 
 
